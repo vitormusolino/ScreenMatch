@@ -3,19 +3,20 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+import com.sun.security.jgss.GSSUtil;
+
+import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
+        Filme meuFilme = new Filme("Carros");
 
         meuFilme.setAnoDeLancamento(2000);
-        meuFilme.setNome("Carros");
         meuFilme.setDuracaoEmMinutos(180);
 
-        Filme outroFilme = new Filme();
+        Filme outroFilme = new Filme("Avatar");
 
         outroFilme.setAnoDeLancamento(2000);
-        outroFilme.setNome("Avatar");
         outroFilme.setDuracaoEmMinutos(100);
 
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
@@ -53,5 +54,19 @@ public class Principal {
         episodio.setTotalVisualizacoes(150);
         episodio.setSerie(lost);
         filtro.filtra(episodio);
+
+        var filmeDoPaulo = new Filme("Dogville");
+        filmeDoPaulo.setDuracaoEmMinutos(200);
+        filmeDoPaulo.setAnoDeLancamento(2003);
+        filmeDoPaulo.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+
+        listaDeFilmes.add(filmeDoPaulo);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme da lista: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
     }
 }
