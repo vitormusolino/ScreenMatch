@@ -2,11 +2,16 @@ package br.com.alura.screenmatch.modelos;
 
 public class Titulo {
     private String nome;
-    public int anoDeLancamento;
+    private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaAvaliacao;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
 
     public int getDuracaoEmMinutos() {
         return duracaoEmMinutos;
